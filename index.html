@@ -16,17 +16,6 @@
 
   <div class="login-panel">
     <h2>Login</h2>
-    <?php
-    session_start();
-    if (isset($_SESSION["login_error"])) {
-      echo '<p style="color: red;">' . $_SESSION["login_error"] . '</p>';
-      unset($_SESSION["login_error"]);
-    }
-    if (isset($_SESSION["register_success"])) {
-      echo '<p style="color: green;">' . $_SESSION["register_success"] . '</p>';
-      unset($_SESSION["register_success"]);
-    }
-    ?>
     <form action="login.php" method="post">
       <div class="input-group">
         <label for="username">Username:</label>
