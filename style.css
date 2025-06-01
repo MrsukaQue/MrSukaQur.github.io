@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+  overflow: hidden;
+  position: relative; /* Menjadikan body sebagai container positioning untuk panel login */
+}
+
+.stars {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  background: white;
+  box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white;
+}
+
+.shooting-star {
+  position: absolute;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), white);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: shooting 3s infinite;
+}
+
+.shooting-star:nth-child(1) {
+  top: 20vh;
+  left: 10vw;
+  width: 100px;
+  height: 2px;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 60vh;
+  left: 70vw;
+  width: 150px;
+  height: 3px;
+  animation-delay: 1s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 10vh;
+  left: 40vw;
+  width: 80px;
+  height: 2px;
+  animation-delay: 2s;
+}
+
+.shooting-star:nth-child(4) {
+  top: 80vh;
+  left: 90vw;
+  width: 120px;
+  height: 3px;
+  animation-delay: 0.5s;
+}
+
+.shooting-star:nth-child(5) {
+  top: 30vh;
+  left: 30vw;
+  width: 90px;
+  height: 2px;
+  animation-delay: 1.5s;
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(calc(-100vw - 100px));
+    opacity: 0;
+  }
+}
+
+.login-panel {
+  background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  position: absolute; /* Agar bisa diposisikan di atas latar belakang */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; /* Warna teks menjadi putih agar terlihat di latar belakang gelap */
+  backdrop-filter: blur(10px); /* Efek blur di belakang panel */
+}
+
+.login-panel h2 {
+  margin-bottom: 30px;
+  color: white;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.input-group input::placeholder {
+  color: #ddd;
+}
+
+.login-panel button {
+  background-color: #5cb85c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-panel button:hover {
+  background-color: #4cae4c;
+}

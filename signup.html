@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Gaya khusus untuk halaman sign up (sama seperti sebelumnya) */
+    .signup-panel {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .signup-panel h2 {
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .signup-panel .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .signup-panel .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .signup-panel .input-group input[type="text"],
+    .signup-panel .input-group input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .signup-panel .input-group input::placeholder {
+      color: #ddd;
+    }
+
+    .signup-panel button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup-panel button:hover {
+      background-color: #0056b3;
+    }
+
+    .signup-panel .login-link {
+      margin-top: 20px;
+    }
+
+    .signup-panel .login-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .signup-panel .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+
+  <div class="signup-panel">
+    <h2>Sign Up</h2>
+    <?php
+    session_start();
+    if (isset($_SESSION["register_error"])) {
+      echo '<p style="color: red;">' . $_SESSION["register_error"] . '</p>';
+      unset($_SESSION["register_error"]);
+    }
+    ?>
+    <form action="register.php" method="post">
+      <div class="input-group">
+        <label for="signup_username">Username:</label>
+        <input type="text" id="signup_username" name="signup_username" required>
+      </div>
+      <div class="input-group">
+        <label for="signup_password">Password:</label>
+        <input type="password" id="signup_password" name="signup_password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="login-link">
+      <p>Sudah punya akun? <a href="index.html">Login</a></p>
+    </div>
+  </div>
+</body>
+</html>
