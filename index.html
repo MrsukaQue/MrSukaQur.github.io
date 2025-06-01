@@ -1,42 +1,46 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "my_login_app";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
 
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password);
-
-// Cek koneksi
-if ($conn->connect_error) {
-    die("Koneksi ke database gagal: " . $conn->connect_error);
-}
-
-// Membuat database jika belum ada
-$sql_create_db = "CREATE DATABASE IF NOT EXISTS $dbname";
-if ($conn->query($sql_create_db) === TRUE) {
-    // echo "Database berhasil dibuat atau sudah ada\n";
-} else {
-    echo "Error membuat database: " . $conn->error . "\n";
-}
-
-// Memilih database
-$conn->select_db($dbname);
-
-// Membuat tabel users jika belum ada
-$sql_create_table = "CREATE TABLE IF NOT EXISTS users (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(30) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)";
-
-if ($conn->query($sql_create_table) === TRUE) {
-    // echo "Tabel users berhasil dibuat atau sudah ada\n";
-} else {
-    echo "Error membuat tabel: " . $conn->error . "\n";
-}
-
-// Mengembalikan objek koneksi
-return $conn;
-?>
+  <div class="login-panel">
+    <h2>Login</h2>
+    <?php
+    session_start();
+    if (isset($_SESSION["login_error"])) {
+      echo '<p style="color: red;">' . $_SESSION["login_error"] . '</p>';
+      unset($_SESSION["login_error"]);
+    }
+    if (isset($_SESSION["register_success"])) {
+      echo '<p style="color: green;">' . $_SESSION["register_success"] . '</p>';
+      unset($_SESSION["register_success"]);
+    }
+    ?>
+    <form action="login.php" method="post">
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+      <p>Belum punya akun? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>
