@@ -92,13 +92,6 @@
 
   <div class="signup-panel">
     <h2>Sign Up</h2>
-    <?php
-    session_start();
-    if (isset($_SESSION["register_error"])) {
-      echo '<p style="color: red;">' . $_SESSION["register_error"] . '</p>';
-      unset($_SESSION["register_error"]);
-    }
-    ?>
     <form action="register.php" method="post">
       <div class="input-group">
         <label for="signup_username">Username:</label>
